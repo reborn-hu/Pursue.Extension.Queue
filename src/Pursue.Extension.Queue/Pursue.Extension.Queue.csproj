@@ -3,10 +3,10 @@
 		<TargetFrameworks>net6.0;net8.0;net9.0</TargetFrameworks>
 		<Version>$(Version)</Version>
 		<PackageVersion>$(Version)</PackageVersion>
-		<PackageTags>Pursue.Extension.Cache</PackageTags>
+		<PackageTags>Pursue.Extension.Queue</PackageTags>
 		<Authors>Reborn</Authors>
 		<Owners>Reborn</Owners>
-		<Description>Pursue系列 本地缓存，分布式缓存，二级缓存中间件</Description>
+		<Description>Pursue系列 消息队列中间件</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,7 +42,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.3" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="RabbitMQ.Client" Version="7.1.0" />
