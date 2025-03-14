@@ -7,12 +7,12 @@ namespace Pursue.Extension.Queue
     /// <summary>
     /// 枚举操作扩展
     /// </summary>
-    static class EnumExtension
+    internal static class EnumExtension
     {
         /// <summary>获取枚举描述</summary>
         /// <param name="en">枚举</param>
         /// <returns>枚举的描述</returns>
-        public static string GetDescription(this Enum en)
+        internal static string GetDescription(this Enum en)
         {
             MemberInfo[] memInfo = en.GetType().GetMember(en.ToString());
             if (memInfo != null && memInfo.Length != 0)

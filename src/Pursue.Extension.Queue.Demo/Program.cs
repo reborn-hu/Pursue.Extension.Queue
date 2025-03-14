@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Pursue.Extension.DependencyInjection;
 using Pursue.Extension.Queue.Demo;
-using Pursue.Extension.Queue.DependencyInjection;
 using System;
 using System.Text;
 

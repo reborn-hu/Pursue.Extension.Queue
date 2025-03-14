@@ -27,7 +27,7 @@ namespace Pursue.Extension.Queue
         {
             try
             {
-                var _connectionSettings = QueueOptions.ConnectionSettings[QueueType.RabbitMQ];
+                var _connectionSettings = QueueConfigOptions.ConnectionSettings[QueueType.RabbitMQ];
 
                 var endpoints = _connectionSettings.Endpoints.Select(o => new AmqpTcpEndpoint
                 {

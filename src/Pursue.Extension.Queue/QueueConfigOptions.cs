@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace Pursue.Extension.Queue
 {
-    public sealed class QueueOptions
+    public sealed class QueueConfigOptions
     {
         /// <summary>
         /// Queue是否启用
@@ -20,7 +21,7 @@ namespace Pursue.Extension.Queue
         /// 注入配置
         /// </summary>
         /// <returns></returns>
-        public QueueOptions UseQueueOptions(IConfiguration configuration, string configNode = "Configuration:Queue")
+        public QueueConfigOptions UseQueueOptions(IConfiguration configuration, string configNode = "Configuration:Queue")
         {
             var config = configuration.GetSection(configNode).Get<QueueConfigRoot>();
 
@@ -46,5 +47,51 @@ namespace Pursue.Extension.Queue
         /// 连接参数字典
         /// </summary>
         public ConcurrentDictionary<QueueType, QueueConnectionSettings> ConnectionSettings { get; set; }
+    }
+
+    public sealed class QueueConnectionSettings
+    {
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
+        /// 虚拟路径
+        /// </summary>
+        public string VirtualHost { get; set; }
+
+        /// <summary>
+        /// Queue 连接IP端口组
+        /// </summary>
+        public List<QueueEndpoint> Endpoints { get; set; } = new List<QueueEndpoint>();
+    }
+
+    public sealed class QueueEndpoint
+    {
+        /// <summary>
+        /// IP
+        /// </summary>
+        public string Host { get; set; }
+
+        /// <summary>
+        /// 端口
+        /// </summary>
+        public int Port { get; set; }
+    }
+
+    public sealed class QueueStatusCode
+    {
+        public const ushort ExitCode = 131;
+    }
+
+    public enum QueueType
+    {
+        RabbitMQ
     }
 }
